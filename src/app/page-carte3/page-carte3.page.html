@@ -26,8 +26,8 @@
   </ion-content>
 
   <ion-footer>
-    <ion-list *ngFor=" let item_description of list_description_par_ligne; let i = index">
-      <ion-card style="background: {{itineraire[i].color}}">
+    <ion-list *ngFor=" let item_description of list_description_par_ligne; let y = index">
+      <ion-card style="background: {{itineraire[y].color}}">
         <ion-card-content *ngFor="let item_description2 of list_description_par_ligne[i]">
           <p style="color: white">
             {{item_description2}}
