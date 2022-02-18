@@ -31,7 +31,7 @@ export class TripsearchPage implements OnInit {
   constructor(private api: ApiService, private googleApi: GoogleApiService, private dataService: DataTransferService, private geolocation: Geolocation) {
     this.tripStart = [];
     this.tripEnd = [];
-    this.isSearchingTripStart = false;
+    this.isSearchingTripStart = false ;
     this.stationsNameList = [];
     this.stations = [];
     this.useTram = true;
