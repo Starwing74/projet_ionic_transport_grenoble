@@ -85,6 +85,9 @@ export class PageCarte2Page implements OnInit {
   private ligne: string;
   private lignefromstation: string;
 
+  private value1: string;
+  private colorvalue;
+
   constructor(private api: ApiService, private  setServiceMap: MapListeLigneService, private geo: Geolocation, private storage: Storage) {
     this.storage.create();
   }
@@ -247,6 +250,9 @@ export class PageCarte2Page implements OnInit {
 
       for(let y = 0; y < res2.length; y++)
       {
+        this.colorvalue = "";
+        await this.getcolorfromline(res2[y]);
+        console.log(res2[y] + " : " + this.colorvalue);
         this.lignefromstation += res2[y];
         this.lignefromstation += " ";
       }
@@ -261,23 +267,14 @@ export class PageCarte2Page implements OnInit {
     const lineInfoRequest = await this.api.getAllLinesList();
     const i: number = 0;
 
-    console.log("------------------------------------------------------------------------------");
-    console.log(lineId);
-
-    if(lineId === "B")
-    {
-      console.log("fffffffffffffffffff");
-    }
-
     for (let i = 0; i < lineInfoRequest.length; i++)
     {
       if(lineInfoRequest[i].id.includes("SEM"))
       {
-        console.log(lineInfoRequest[i].shortName);
-        console.log("------" + lineId);
-        if(lineId === "B")
+        this.value1 = lineId;
+        if(this.value1 === lineInfoRequest[i].shortName + " ")
         {
-          console.log("Color: ");
+          this.colorvalue = lineInfoRequest[i].color;
         }
       }
     }

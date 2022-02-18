@@ -178,7 +178,7 @@ export class PageCarte3Page implements OnInit {
       .bindPopup(`<strong>Point de départ</strong>`, { autoClose: false }).addTo(this.map);
 
     Leaflet.marker([this.point_arriver[0],this.point_arriver[1]], { icon: this.cityMarkerIcon })
-      .bindPopup(`<strong>Point de départ</strong>`, { autoClose: false }).addTo(this.map);
+      .bindPopup(`<strong>Point de arriver</strong>`, { autoClose: false }).addTo(this.map);
 
     for(let i = 0; i < this.itineraire.length; i++)
     {
